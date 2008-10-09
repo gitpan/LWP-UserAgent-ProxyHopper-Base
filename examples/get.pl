@@ -11,9 +11,12 @@ package main;
 use strict;
 use warnings;
 
-my $ua = LWP::UserAgent::Prox->new( agent => 'fox', timeout => 2);
+my $ua = LWP::UserAgent::Prox->new( agent => 'fox', timeout => 2,
 
-$ua->proxify_load( debug => 1 );
+
+);
+
+$ua->proxify_load( debug => 1, );
 
 for ( 1..10 ) {
     my $response = $ua->proxify_get('http://www.privax.us/ip-test/');

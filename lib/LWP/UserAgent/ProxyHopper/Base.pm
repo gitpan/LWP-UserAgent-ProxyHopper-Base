@@ -3,7 +3,7 @@ package LWP::UserAgent::ProxyHopper::Base;
 use warnings;
 use strict;
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use Carp;
 use Devel::TakeHashArgs;
@@ -178,7 +178,7 @@ sub _proxify_set_proxy {
         $self->proxify_debug
             and carp 'proxify_list() is exhausted, trying "working" list';
     
-        $self->proxify_list = $self->proxify_working_list;
+        $self->proxify_list( $self->proxify_working_list );
         $self->proxify_working_list([]);
         $proxy = $self->proxify_current( shift @{ $self->proxify_list } );
     }
@@ -187,7 +187,7 @@ sub _proxify_set_proxy {
         $self->proxify_debug
            and carp 'proxify_working_list() is exhausted, trying "bad" list';
 
-        $self->proxify_list = $self->proxify_bad_list;
+        $self->proxify_list( $self->proxify_bad_list );
         $self->proxify_bad_list([]);
         $proxy = $self->proxify_current( shift @{ $self->proxify_list } );
     }
@@ -617,7 +617,7 @@ argument's setting ( in the proxify_load() method ).
 =head1 AUTHOR
 
 Zoffix Znet, C<< <zoffix at cpan.org> >>
-(L<http://zoffix.com>, L<http://haslayout.net>)
+(L<http://zoffix.com/>, L<http://haslayout.net/>, L<http://zofdesign.com/>)
 
 =head1 BUGS
 
