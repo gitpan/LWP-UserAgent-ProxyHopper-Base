@@ -2,7 +2,7 @@
 
 package LWP::UserAgent::Prox;
 
-use lib '../lib';
+use lib qw(../lib  lib);
 use base 'LWP::UserAgent';
 use base 'LWP::UserAgent::ProxyHopper::Base';
 
@@ -19,12 +19,12 @@ my $ua = LWP::UserAgent::Prox->new( agent => 'fox', timeout => 2,
 $ua->proxify_load( debug => 1, );
 
 for ( 1..10 ) {
-    my $response = $ua->proxify_get('http://www.privax.us/ip-test/');
+    my $response = $ua->proxify_get('http://whatismyipaddress.com/');
 
     if ( $response->is_success ) {
         my $content = $response->content;
         if ( my ( $ip ) = $content
-            =~ m|<p>.+?IP Address:\s*</strong>\s*(.+?)\s+|s
+            =~ m|<!-- do not script -->\s*([\d.]+)\s*<!-- do not script -->|i
         ) {
             printf "\n\nSucces!!! \n%s\n", $ip;
         }

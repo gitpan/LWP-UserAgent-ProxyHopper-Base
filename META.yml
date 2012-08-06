@@ -1,12 +1,22 @@
 ---
-name: LWP-UserAgent-ProxyHopper-Base
-version: 0.002
+abstract: 'base class for LWP::UserAgent based modules which want to proxy-hop their requests'
 author:
   - 'Zoffix Znet <zoffix@cpan.org>'
-abstract: base class for LWP::UserAgent based modules which want to proxy-hop their requests
+build_requires:
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.4
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4, CPAN::Meta::Converter version 2.112150'
 license: perl
-resources:
-  license: http://dev.perl.org/licenses/
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: LWP-UserAgent-ProxyHopper-Base
+provides:
+  LWP::UserAgent::ProxyHopper::Base:
+    file: lib/LWP/UserAgent/ProxyHopper/Base.pm
+    version: 0.003
 requires:
   Carp: 1.04
   Class::Data::Accessor: 0.04001
@@ -14,13 +24,6 @@ requires:
   List::MoreUtils: 0.21
   WWW::FreeProxyListsCom: 0.002
   WWW::Proxy4FreeCom: 0.001
-build_requires:
-  Test::More: 0
-provides:
-  LWP::UserAgent::ProxyHopper::Base:
-    file: lib/LWP/UserAgent/ProxyHopper/Base.pm
-    version: 0.002
-generated_by: Module::Build version 0.2808
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.003

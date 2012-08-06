@@ -3,7 +3,7 @@ package LWP::UserAgent::ProxyHopper::Base;
 use warnings;
 use strict;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 use Carp;
 use Devel::TakeHashArgs;
@@ -618,6 +618,8 @@ argument's setting ( in the proxify_load() method ).
 
 Zoffix Znet, C<< <zoffix at cpan.org> >>
 (L<http://zoffix.com/>, L<http://haslayout.net/>, L<http://zofdesign.com/>)
+
+Thanks for reporting bugs and/or providing a patches goes to: I<lordnynex>.
 
 =head1 BUGS
 
